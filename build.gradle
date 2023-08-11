@@ -65,6 +65,7 @@ jar {
 	from("LICENSE") {
 		rename { "${it}_${base.archivesName.get()}"}
 	}
+    processResources.exclude('**/icon.pdn')
 }
 
 // https://github.com/FabricMC/fabric/issues/2974#issuecomment-1472382235
