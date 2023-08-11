@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "com.mrengman.autoserverworldselection.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "MixinMapProcessor",
+    "BiomeAccessAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "text.autoconfig.autoserverworldselection.title": "Auto Server World Selection",
+
+  "text.autoconfig.autoserverworldselection.option.enabledServerAddresses": "Enabled Server IPs",
+  "text.autoconfig.autoserverworldselection.option.enabledServerAddresses.@Tooltip": "For each server you'd like to use the mod on,\nfill out its IP address\ne.g. play.example.com"
+
+}
