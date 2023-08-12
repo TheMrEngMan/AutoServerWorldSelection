@@ -15,7 +15,6 @@ public abstract class MixinMapProcessor {
     public void getAutoIdBase(ClientWorld world, CallbackInfoReturnable<Object> cir) {
         if(!AutoServerWorldSelection.enabled) return;
         Integer seedHash = (int) ((BiomeAccessAccessor) world.getBiomeAccess()).getSeed();
-        System.out.println("getAutoIdBase: " + seedHash);
         cir.setReturnValue(seedHash);
     }
 
