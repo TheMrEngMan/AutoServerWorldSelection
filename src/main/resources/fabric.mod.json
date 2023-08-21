@@ -23,13 +23,10 @@
     "icon": "assets/autoserverworldselection/icon.png",
     "depends": {
         "fabricloader": ">=0.11.3",
-        "fabric": "*",
-        "minecraft": "1.20.1",
-        "xaerominimap": ">=19.0",
+        "minecraft": "~1.20.1",
+        "xaeroworldmap": ">=1.30.4",
         "java":">=17",
+        "fabric-api": "*",
         "cloth-config2": "*"
-    },
-    "suggests": {
-        "modmenu": "*"
     }
 }
