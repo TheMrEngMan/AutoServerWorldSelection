@@ -22,10 +22,10 @@
     ],
     "icon": "assets/autoserverworldselection/icon.png",
     "depends": {
-        "fabricloader": ">=0.18.4",
-        "minecraft": "~1.21.11",
-        "xaeroworldmap": ">=1.30.4",
-        "java":">=21",
+        "fabricloader": ">=0.19.3",
+        "minecraft": ">=26.2",
+        "xaeroworldmap": ">=1.44.2",
+        "java":">=25",
         "fabric-api": "*",
         "cloth-config2": "*"
     }

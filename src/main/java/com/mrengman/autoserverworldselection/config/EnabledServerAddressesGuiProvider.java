@@ -6,7 +6,7 @@ import me.shedaniel.autoconfig.util.Utils;
 import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import me.shedaniel.clothconfig2.gui.entries.StringListListEntry;
-import net.minecraft.text.Text;
+import net.minecraft.network.chat.Component;
 
 import java.lang.reflect.Field;
 import java.util.Collections;
@@ -19,7 +19,7 @@ public class EnabledServerAddressesGuiProvider implements GuiProvider {
     public List<AbstractConfigListEntry> get(String i13n, Field field, Object config, Object defaults, GuiRegistryAccess registry) {
         return Collections.singletonList(
                 ConfigEntryBuilder.create()
-                        .startStrList(Text.translatable(i13n), Utils.getUnsafely(field, config))
+                        .startStrList(Component.translatable(i13n), Utils.getUnsafely(field, config))
                         .setExpanded(true)
                         .setCreateNewInstance(entry -> new StringListListEntry.StringListCell("play.example.com", entry))
                         .setDefaultValue(() -> Utils.getUnsafely(field, defaults))

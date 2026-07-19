@@ -3,6 +3,7 @@ package com.mrengman.autoserverworldselection;
 import com.mrengman.autoserverworldselection.config.AutoServerWorldSelectionConfig;
 import com.mrengman.autoserverworldselection.config.EnabledServerAddressesGuiProvider;
 import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.AutoConfigClient;
 import me.shedaniel.autoconfig.event.ConfigSerializeEvent;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
@@ -22,9 +23,9 @@ public class AutoServerWorldSelection implements ClientModInitializer {
         loadConfig();
 
         ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
-            if (!client.isIntegratedServerRunning()) {
+            if (!client.hasSingleplayerServer()) {
                 try {
-                    currentServerIP = Objects.requireNonNull(client.getCurrentServerEntry()).address;
+                    currentServerIP = Objects.requireNonNull(client.getCurrentServer()).ip;
                 } catch (NullPointerException e) {
                     enabled = false;
                 }
@@ -40,7 +41,7 @@ public class AutoServerWorldSelection implements ClientModInitializer {
 
     public void loadConfig() {
         AutoConfig.register(AutoServerWorldSelectionConfig.class, GsonConfigSerializer::new);
-        var guiRegistry = AutoConfig.getGuiRegistry(AutoServerWorldSelectionConfig.class);
+        var guiRegistry = AutoConfigClient.getGuiRegistry(AutoServerWorldSelectionConfig.class);
         guiRegistry.registerPredicateProvider(
                 new EnabledServerAddressesGuiProvider(),
                 field -> field.getName().equals("enabledServerAddresses")
